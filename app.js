@@ -5,17 +5,15 @@ const app = express();
 app.use(express.json());
 const port = 3000;
 
-// Define la función `start` antes de usarla
 const start = (client) => {
     // Manejar la recepción de mensajes
     client.onMessage(async (message) => {
         const receivedMsg = message.body.toLowerCase();
-        const messageSplit = receivedMsg.split(" "); // Reemplaza esto con el nombre real de tu bot
+        const messageSplit = receivedMsg.split(" ");
         const number = messageSplit[0];
         const initNumeral = messageSplit[1];
         const regex = /^#/;
 
-        // Verificar si el mensaje es una mención al bot
         if (message.isGroupMsg && message.body.includes(number)) {
         // if (message.body.includes(number)) {
             if(regex.test(initNumeral)){
